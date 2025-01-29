@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IX sinif buraxılış İmtahanı Balı</title>
+    <link rel="stylesheet" href="bixstyle.css">
+</head>
+<body>
+    <div class="container">
+        <h1>IX sinif buraxılış İmtahanı Balı</h1>
+        <button class="exitb" onclick="window.location.href='index.html'">X</button>
+        <label>Azərbaycan dili - Qapalı suallar:</label>
+        <input type="number" id="az_qapali" placeholder="Düzgün qapalı suallar">
+        <label>Azərbaycan dili - Açıq suallar:</label>
+        <input type="number" id="az_aciq" placeholder="Düzgün açıq suallar">
+        <button onclick="calculateAz()">Hesabla</button>
+        <h2 id="resultAz">Nəticə: </h2>
+
+        <label>Riyaziyyat - Qapalı suallar:</label>
+        <input type="number" id="mat_qapali" placeholder="Düzgün qapalı suallar">
+        <label>Riyaziyyat - Açıq suallar:</label>
+        <input type="number" id="mat_aciq" placeholder="Düzgün açıq suallar">
+        <label>Riyaziyyat - Yazılı suallar:</label>
+        <input type="number" id="mat_yazili" placeholder="Düzgün yazılı suallar">
+        <button onclick="calculateRy()">Hesabla</button>
+        <h2 id="resultRy">Nəticə: </h2>
+
+        <label>Xarici dil - Qapalı suallar:</label>
+        <input type="number" id="in_qapali" placeholder="Düzgün qapalı suallar">
+        <label>Xarici dil - Açıq suallar:</label>
+        <input type="number" id="in_aciq" placeholder="Düzgün açıq suallar">
+        <button onclick="calculateIn()">Hesabla</button>
+        <h2 id="resultIn">Nəticə: </h2>
+    </div>
+    
+    <script>
+        function calculateAz() {
+            let azQapali = parseFloat(document.getElementById('az_qapali').value) || 0;
+            let azAciq = parseFloat(document.getElementById('az_aciq').value) || 0;
+            let resultAz = ((azAciq * 2 + azQapali) * 100) / 34;
+            document.getElementById('resultAz').innerText = 'Nəticə: ' + resultAz;
+        }
+        function calculateRy() {
+            let ryQapali = parseFloat(document.getElementById('mat_qapali').value) || 0;
+            let ryAciq = parseFloat(document.getElementById('mat_aciq').value) || 0;
+            let ryYazili = parseFloat(document.getElementById('mat_yazili').value) || 0;
+            let resultRy = ((ryYazili * 2 + ryAciq + ryQapali) * 100) / 29;
+            document.getElementById('resultRy').innerText = 'Nəticə: ' + resultRy;
+        }
+        function calculateIn() {
+            let inQapali = parseFloat(document.getElementById('in_qapali').value) || 0;
+            let inAciq = parseFloat(document.getElementById('in_aciq').value) || 0;
+            let resultIn = ((inAciq * 2 + inQapali) * 100) / 34;
+            document.getElementById('resultIn').innerText = 'Nəticə: ' + resultIn;
+        }
+    </script>
+</body>
+</html>
